@@ -14,7 +14,8 @@ import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid="akaAlchemy", name="Alchemy for Minecraft!", version="0.0.1")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
-public class Alchemy {
+public class Alchemy 
+{
 
         // The instance of your mod that Forge uses.
         @Instance("akaAlchemy")
@@ -25,17 +26,20 @@ public class Alchemy {
         public static CommonProxy proxy;
         
         @PreInit
-        public void preInit(FMLPreInitializationEvent event) {
+        public void preInit(FMLPreInitializationEvent event) 
+        {
                 // Stub Method
         }
         
         @Init
-        public void load(FMLInitializationEvent event) {
+        public void load(FMLInitializationEvent event) 
+        {
                 proxy.registerRenderers();
         }
         
         @PostInit
-        public void postInit(FMLPostInitializationEvent event) {
+        public void postInit(FMLPostInitializationEvent event) 
+        {
                 // Stub Method
         }
 }
