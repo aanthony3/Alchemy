@@ -1,6 +1,8 @@
 package aka.alchemy.common;
 
+import aka.alchemy.common.config.ConfigurationHandler;
 import aka.alchemy.common.core.proxy.CommonProxy;
+import aka.alchemy.common.lib.Reference;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -12,23 +14,23 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
-@Mod(modid="akaAlchemy", name="Alchemy for Minecraft!", version="0.0.1")
+@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class Alchemy 
 {
 
         // The instance of your mod that Forge uses.
-        @Instance("akaAlchemy")
+        @Instance(Reference.MOD_ID)
         public static Alchemy instance;
-        
-        // Says where the client and server 'proxy' code is loaded.
-        @SidedProxy(clientSide="com.aka.alchemy.core.proxy.ClientProxy", serverSide="tutorial.generic.CommonProxy")
+
+        @SidedProxy(clientSide=Reference.CLIENT_PROXY_CLASS, serverSide=Reference.SERVER_PROXY_CLASS)
         public static CommonProxy proxy;
         
         @PreInit
         public void preInit(FMLPreInitializationEvent event) 
         {
-                // Stub Method
+        	//Load config file
+        	ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         }
         
         @Init
