@@ -1,8 +1,8 @@
 package aka.alchemy.common.lib;
 
-public class Reference 
+public class Reference
 {
-	/* Debug Mode On-Off */
+    /* Debug Mode On-Off */
     public static final boolean DEBUG_MODE = false;
 
     /* General Mod related constants */
