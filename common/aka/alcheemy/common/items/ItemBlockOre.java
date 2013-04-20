@@ -1,22 +1,43 @@
 package aka.alcheemy.common.items;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlockWithMetadata;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
+import aka.alchemy.common.blocks.ModBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBlockOre extends ItemBlockWithMetadata
+public class ItemBlockOre extends ItemBlock
 {
-    private final static String[] subNames = {"copper","tin","titanium"};
-    public ItemBlockOre(int itemID, Block par2Block)
+
+    public static final String[] oreNames = new String[] { "coper", "tin",
+            "titanium" };
+
+    public ItemBlockOre(int itemId)
     {
-        super(itemID, par2Block);
-        this.setMaxDamage(3);  
-        this.setUnlocalizedName("blockOre");
+        super(itemId);
+        setHasSubtypes(true);
+        setMaxDamage(0);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public Icon getIconFromDamage(int damageValue)
+    {
+        return ModBlocks.ores.getIcon(2, damageValue);
     }
 
     @Override
-    public String getLocalizedName(ItemStack itemStack)
+    public int getMetadata(int damageValue)
     {
-        return this.getUnlocalizedName() + "." + subNames[itemStack.getItemDamage()];
+        return damageValue;
     }
+
+    @Override
+    public String getUnlocalizedName(ItemStack itemStack)
+    {
+        return super.getUnlocalizedName() + "."
+                + oreNames[itemStack.getItemDamage() % oreNames.length];
+    }
+
 }

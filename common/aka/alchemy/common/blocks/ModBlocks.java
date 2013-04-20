@@ -1,9 +1,9 @@
 package aka.alchemy.common.blocks;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 import aka.alchemy.common.lib.BlockIds;
 import aka.alchemy.common.lib.Strings;
-import net.minecraft.block.Block;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBlocks
 {
@@ -15,6 +15,13 @@ public class ModBlocks
         ores = new BlockOre(BlockIds.ORE);
 
         GameRegistry.registerBlock(ores, Strings.ORE_BLOCK_NAME);
+
+        registerNames();
+    }
+
+    private static void registerNames()
+    {
+
     }
 
     public static void initBlockRecipies()

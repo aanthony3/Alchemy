@@ -2,20 +2,30 @@ package aka.alcheemy.common.items;
 
 import net.minecraft.item.ItemStack;
 import aka.alchemy.common.blocks.ModBlocks;
+import aka.alchemy.common.lib.Strings;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems
 {
+    public static ItemBlockOre itemBlockOre;
 
     public static void init()
     {
-        ItemStack stack = new ItemStack(ModBlocks.ores, 1, 0);
-        LanguageRegistry.addName(stack, "hi");
+        itemBlockOre = new ItemBlockOre(ModBlocks.ores.blockID - 256);
 
-        stack = new ItemStack(ModBlocks.ores, 1, 1);
-        LanguageRegistry.addName(stack, "hi1");
+        GameRegistry.registerItem(itemBlockOre, Strings.ORE_ITEM_NAME);
 
-        stack = new ItemStack(ModBlocks.ores, 1, 2);
-        LanguageRegistry.addName(stack, "hi2");
+        registerNames();
     }
+
+    private static void registerNames()
+    {
+        LanguageRegistry.addName(new ItemStack(itemBlockOre, 1, 0),
+                "Copper Ore");
+        LanguageRegistry.addName(new ItemStack(itemBlockOre, 1, 1), "Tin Ore");
+        LanguageRegistry.addName(new ItemStack(itemBlockOre, 1, 2),
+                "Titanium Ore");
+    }
+
 }

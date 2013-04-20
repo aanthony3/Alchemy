@@ -7,8 +7,9 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraft.world.World;
 import aka.alchemy.common.Alchemy;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockOre extends BlockAlchemy
 {
@@ -24,7 +25,6 @@ public class BlockOre extends BlockAlchemy
         super(blockId, Material.rock);
         setCreativeTab(Alchemy.instance.alchemyTab);
         setHardness(3.0F);
-        this.setUnlocalizedName("blockOre");
     }
 
     @Override
@@ -38,6 +38,7 @@ public class BlockOre extends BlockAlchemy
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int metadata)
     {
         if (metadata < icons.length)
@@ -45,25 +46,20 @@ public class BlockOre extends BlockAlchemy
         else
             return null;
     }
-    
+
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public void getSubBlocks(int i, CreativeTabs tab, List itemStack)
+    public void getSubBlocks(int blockId, CreativeTabs tab, List itemStack)
     {
-        for (int iii = 0; iii < 3; iii++ )
-        {
-            itemStack.add(new ItemStack(this, 1, iii));
+        for (int iii = 0; iii < icons.length; iii++) {
+            itemStack.add(new ItemStack(blockId, 1, iii));
         }
     }
-    
+
     @Override
     public int damageDropped(int par1)
     {
         return par1;
     }
-    @Override
-    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
-    {
-        return par9;
-    }
+
 }

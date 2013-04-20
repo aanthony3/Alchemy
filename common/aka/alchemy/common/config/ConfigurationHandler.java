@@ -3,12 +3,10 @@ package aka.alchemy.common.config;
 import java.io.File;
 import java.util.logging.Level;
 
-import cpw.mods.fml.common.FMLLog;
-
+import net.minecraftforge.common.Configuration;
 import aka.alchemy.common.lib.BlockIds;
 import aka.alchemy.common.lib.Strings;
-
-import net.minecraftforge.common.Configuration;
+import cpw.mods.fml.common.FMLLog;
 
 public class ConfigurationHandler
 {
