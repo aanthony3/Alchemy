@@ -20,8 +20,10 @@ public class ModItems
         itemTitaniumNugget = new ItemTitaniumNugget(ItemIds.TITANIUM_NUGGET);
 
         GameRegistry.registerItem(itemBlockOre, Strings.ORE_ITEM_NAME);
-        GameRegistry.registerItem(itemTitaniumChunk, Strings.TITANIUM_CHUNK_NAME);
-        GameRegistry.registerItem(itemTitaniumNugget, Strings.TITANIUM_NUGGET_NAME);
+        GameRegistry.registerItem(itemTitaniumChunk,
+                Strings.TITANIUM_CHUNK_NAME);
+        GameRegistry.registerItem(itemTitaniumNugget,
+                Strings.TITANIUM_NUGGET_NAME);
 
         registerNames();
     }

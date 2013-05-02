@@ -2,7 +2,6 @@ package aka.alchemy.common.blocks;
 
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -10,7 +9,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import aka.alchemy.common.Alchemy;
-import aka.alchemy.common.helper.LogHelper;
 import aka.alchemy.common.lib.ItemIds;
 import aka.alchemy.common.lib.Reference;
 import cpw.mods.fml.relauncher.Side;
@@ -69,7 +67,7 @@ public class BlockOre extends BlockAlchemy
         else
             return blockID;
     }
-    
+
     @Override
     public int damageDropped(int damageValue)
     {
@@ -79,13 +77,11 @@ public class BlockOre extends BlockAlchemy
     @Override
     public int quantityDropped(int meta, int fortune, Random random)
     {
-        //If it's titanium ore
-        if (meta==2)
-        {
-            int multiplier = random.nextInt((fortune+1)*2);
+        // If it's titanium ore
+        if (meta == 2) {
+            int multiplier = random.nextInt((fortune + 1) * 2);
             return random.nextInt(4) + multiplier;
-        }
-        else
+        } else
             return 1;
     }
 }

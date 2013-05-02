@@ -37,9 +37,9 @@ public class Alchemy
     @PreInit
     public void preInit(FMLPreInitializationEvent event)
     {
-        //initialize the logger
+        // initialize the logger
         LogHelper.init();
-        
+
         // Load config file
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     }
