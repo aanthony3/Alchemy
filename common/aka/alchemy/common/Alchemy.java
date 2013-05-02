@@ -1,11 +1,12 @@
 package aka.alchemy.common;
 
 import net.minecraft.creativetab.CreativeTabs;
-import aka.alcheemy.common.items.ModItems;
 import aka.alchemy.common.blocks.ModBlocks;
 import aka.alchemy.common.config.ConfigurationHandler;
 import aka.alchemy.common.core.proxy.CommonProxy;
 import aka.alchemy.common.creativetab.CreativeTabAlchemy;
+import aka.alchemy.common.helper.LogHelper;
+import aka.alchemy.common.items.ModItems;
 import aka.alchemy.common.lib.Reference;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -36,6 +37,9 @@ public class Alchemy
     @PreInit
     public void preInit(FMLPreInitializationEvent event)
     {
+        //initialize the logger
+        LogHelper.init();
+        
         // Load config file
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     }

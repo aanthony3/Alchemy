@@ -1,6 +1,8 @@
 package aka.alchemy.common.blocks;
 
 import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -8,6 +10,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import aka.alchemy.common.Alchemy;
+import aka.alchemy.common.helper.LogHelper;
+import aka.alchemy.common.lib.ItemIds;
+import aka.alchemy.common.lib.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -32,9 +37,9 @@ public class BlockOre extends BlockAlchemy
     {
         icons = new Icon[3];
 
-        icons[0] = iconRegister.registerIcon("aka:oreCopper");
-        icons[1] = iconRegister.registerIcon("aka:oreTin");
-        icons[2] = iconRegister.registerIcon("aka:oreTitanium");
+        icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":oreCopper");
+        icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":oreTin");
+        icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":oreTitanium");
     }
 
     @Override
@@ -57,9 +62,30 @@ public class BlockOre extends BlockAlchemy
     }
 
     @Override
-    public int damageDropped(int par1)
+    public int idDropped(int damageValue, Random random, int par3)
     {
-        return par1;
+        if (damageValue == 2)
+            return ItemIds.TITANIUM_CHUNK;
+        else
+            return blockID;
+    }
+    
+    @Override
+    public int damageDropped(int damageValue)
+    {
+        return damageValue;
     }
 
+    @Override
+    public int quantityDropped(int meta, int fortune, Random random)
+    {
+        //If it's titanium ore
+        if (meta==2)
+        {
+            int multiplier = random.nextInt((fortune+1)*2);
+            return random.nextInt(4) + multiplier;
+        }
+        else
+            return 1;
+    }
 }

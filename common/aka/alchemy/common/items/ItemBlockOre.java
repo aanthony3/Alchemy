@@ -1,4 +1,4 @@
-package aka.alcheemy.common.items;
+package aka.alchemy.common.items;
 
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
