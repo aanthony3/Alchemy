@@ -5,6 +5,7 @@ import aka.alchemy.common.blocks.ModBlocks;
 import aka.alchemy.common.config.ConfigurationHandler;
 import aka.alchemy.common.core.proxy.CommonProxy;
 import aka.alchemy.common.creativetab.CreativeTabAlchemy;
+import aka.alchemy.common.gen.AlchemyWorldGenerator;
 import aka.alchemy.common.helper.LogHelper;
 import aka.alchemy.common.items.ModItems;
 import aka.alchemy.common.lib.Reference;
@@ -51,6 +52,8 @@ public class Alchemy
 
         ModBlocks.init();
         ModItems.init();
+
+        AlchemyWorldGenerator.registerGenerators();
     }
 
     @PostInit

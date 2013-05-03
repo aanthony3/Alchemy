@@ -3,7 +3,7 @@ package aka.alchemy.common.lib;
 public class Reference
 {
     /* Debug Mode On-Off */
-    public static final boolean DEBUG_MODE = false;
+    public static final boolean DEBUG_MODE = true;
 
     /* General Mod related constants */
     public static final String MOD_ID = "akaAlchemy";
