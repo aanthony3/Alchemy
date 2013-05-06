@@ -1,6 +1,6 @@
 package aka.alchemy.common.lib;
 
-public class WorldGenReference
+public class WorldGen
 {
     // default world gen values
     public static int COPPER_MIN_HEIGHT_DFLT = 0;

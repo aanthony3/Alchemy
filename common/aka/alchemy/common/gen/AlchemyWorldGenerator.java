@@ -1,26 +1,26 @@
 package aka.alchemy.common.gen;
 
 import aka.alchemy.common.lib.BlockIds;
-import aka.alchemy.common.lib.WorldGenReference;
+import aka.alchemy.common.lib.WorldGen;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class AlchemyWorldGenerator
 {
     // Ore generators
     static AlchemyOreGen copperGen = new AlchemyOreGen(BlockIds.ORE, 0,
-            WorldGenReference.COPPER_MIN_HEIGHT,
-            WorldGenReference.COPPER_MAX_HEIGHT,
-            WorldGenReference.COPPER_BLOCKS_PER_VEIN,
-            WorldGenReference.COPPER_VEINS_PER_CHUNK);
+            WorldGen.COPPER_MIN_HEIGHT,
+            WorldGen.COPPER_MAX_HEIGHT,
+            WorldGen.COPPER_BLOCKS_PER_VEIN,
+            WorldGen.COPPER_VEINS_PER_CHUNK);
     static AlchemyOreGen tinGen = new AlchemyOreGen(BlockIds.ORE, 1,
-            WorldGenReference.TIN_MIN_HEIGHT, WorldGenReference.TIN_MAX_HEIGHT,
-            WorldGenReference.TIN_BLOCKS_PER_VEIN,
-            WorldGenReference.TIN_VEINS_PER_CHUNK);
+            WorldGen.TIN_MIN_HEIGHT, WorldGen.TIN_MAX_HEIGHT,
+            WorldGen.TIN_BLOCKS_PER_VEIN,
+            WorldGen.TIN_VEINS_PER_CHUNK);
     static AlchemyOreGen titaniumGen = new AlchemyOreGen(BlockIds.ORE, 2,
-            WorldGenReference.TITANIUM_MIN_HEIGHT,
-            WorldGenReference.TITANIUM_MAX_HEIGHT,
-            WorldGenReference.TITANIUM_BLOCKS_PER_VEIN,
-            WorldGenReference.TITANIUM_VEINS_PER_CHUNK);
+            WorldGen.TITANIUM_MIN_HEIGHT,
+            WorldGen.TITANIUM_MAX_HEIGHT,
+            WorldGen.TITANIUM_BLOCKS_PER_VEIN,
+            WorldGen.TITANIUM_VEINS_PER_CHUNK);
 
     public static void registerGenerators()
     {
