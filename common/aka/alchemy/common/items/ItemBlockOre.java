@@ -17,7 +17,6 @@ public class ItemBlockOre extends ItemBlock
     {
         super(itemId);
         setHasSubtypes(true);
-        setMaxDamage(0);
     }
 
     @SideOnly(Side.CLIENT)

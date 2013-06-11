@@ -36,18 +36,21 @@ public class AlchemyOreGen implements IWorldGenerator
     public void generate(Random random, int chunkX, int chunkZ, World world,
             IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
     {
-        if (world.provider.isSurfaceWorld()) {
+        if (world.provider.isSurfaceWorld())
+        {
             WorldGenerator generator = new WorldGenMinable(blockID, blockMeta,
                     blocksPerVein, Block.stone.blockID);
 
-            for (int iii = 0; iii < veinsPerChunk; iii++) {
+            for (int iii = 0; iii < veinsPerChunk; iii++)
+            {
                 int x = chunkX * 16 + random.nextInt(16);
                 int y = minHeight + random.nextInt(maxHeight - minHeight);
                 int z = chunkZ * 16 + random.nextInt(16);
 
                 generator.generate(world, random, x, y, z);
 
-                if (Reference.DEBUG_MODE) {
+                if (Reference.DEBUG_MODE)
+                {
                     LogHelper.log(Level.FINEST, "Ore spwaned at: " + x + ", "
                             + y + ", " + z);
                 }

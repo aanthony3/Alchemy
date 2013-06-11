@@ -1,6 +1,7 @@
 package aka.alchemy.common.blocks;
 
 import net.minecraft.block.Block;
+import aka.alchemy.common.items.ItemBlockOre;
 import aka.alchemy.common.lib.BlockIds;
 import aka.alchemy.common.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -14,7 +15,8 @@ public class ModBlocks
     {
         ores = new BlockOre(BlockIds.ORE);
 
-        GameRegistry.registerBlock(ores, Strings.ORE_BLOCK_NAME);
+        GameRegistry.registerBlock(ores, ItemBlockOre.class,
+                Strings.ORE_BLOCK_NAME);
 
         registerNames();
     }

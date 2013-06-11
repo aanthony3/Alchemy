@@ -21,7 +21,7 @@ public class BlockOre extends BlockAlchemy
      */
 
     /* Icons */
-    private Icon[] icons;
+    private Icon[] icons = new Icon[3];;
 
     public BlockOre(int blockId)
     {
@@ -33,8 +33,6 @@ public class BlockOre extends BlockAlchemy
     @Override
     public void registerIcons(IconRegister iconRegister)
     {
-        icons = new Icon[3];
-
         icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":oreCopper");
         icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":oreTin");
         icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":oreTitanium");
@@ -52,9 +50,11 @@ public class BlockOre extends BlockAlchemy
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
+    @SideOnly(Side.CLIENT)
     public void getSubBlocks(int blockId, CreativeTabs tab, List itemStack)
     {
-        for (int iii = 0; iii < icons.length; iii++) {
+        for (int iii = 0; iii < icons.length; iii++)
+        {
             itemStack.add(new ItemStack(blockId, 1, iii));
         }
     }
@@ -78,7 +78,8 @@ public class BlockOre extends BlockAlchemy
     public int quantityDropped(int meta, int fortune, Random random)
     {
         // If it's titanium ore
-        if (meta == 2) {
+        if (meta == 2)
+        {
             int multiplier = random.nextInt((fortune + 1) * 2);
             return random.nextInt(4) + multiplier;
         } else
