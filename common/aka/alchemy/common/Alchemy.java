@@ -1,6 +1,7 @@
 package aka.alchemy.common;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import aka.alchemy.common.blocks.ModBlocks;
 import aka.alchemy.common.config.ConfigurationHandler;
 import aka.alchemy.common.core.proxy.CommonProxy;
@@ -9,6 +10,8 @@ import aka.alchemy.common.gen.AlchemyWorldGenerator;
 import aka.alchemy.common.helper.LogHelper;
 import aka.alchemy.common.items.ModItems;
 import aka.alchemy.common.lib.Reference;
+import aka.alchemy.core.handlers.events.EntityEventHandler;
+import aka.alchemy.core.handlers.events.EntityLivingEventHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -54,6 +57,10 @@ public class Alchemy
         ModItems.init();
 
         AlchemyWorldGenerator.registerGenerators();
+
+        // register event handlers
+        MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
+        MinecraftForge.EVENT_BUS.register(new EntityLivingEventHandler());
     }
 
     @PostInit

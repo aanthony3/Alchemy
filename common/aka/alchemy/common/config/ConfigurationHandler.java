@@ -36,6 +36,10 @@ public class ConfigurationHandler
             ItemIds.TITANIUM_NUGGET = config.getItem(
                     Strings.TITANIUM_NUGGET_NAME, ItemIds.TITANIUM_NUGGET_DFLT)
                     .getInt(ItemIds.TITANIUM_NUGGET_DFLT);
+            ItemIds.VILLAGER_BREEDER = config.getItem(
+                    Strings.VILLAGER_BREEDER_NAME,
+                    ItemIds.VILLAGER_BREEDER_DFLT).getInt(
+                    ItemIds.VILLAGER_BREEDER_DFLT);
 
             // World gen parameters
             WorldGen.COPPER_MIN_HEIGHT = config.get("WorldGen",
