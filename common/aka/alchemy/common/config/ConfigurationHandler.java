@@ -55,6 +55,9 @@ public class ConfigurationHandler
                     .get("WorldGen", "CopperVeinsPerChunk",
                             WorldGen.COPPER_VEINS_PER_CHUNK_DFLT).getInt(
                             WorldGen.COPPER_VEINS_PER_CHUNK_DFLT);
+            WorldGen.GENERATE_COPPER = config.get("WorldGen", "GenerateCopper",
+                    WorldGen.GENERATE_COPPER_DFLT).getBoolean(
+                    WorldGen.GENERATE_COPPER_DFLT);
 
             // If debug mode is one print all ids
             if (Reference.DEBUG_MODE)

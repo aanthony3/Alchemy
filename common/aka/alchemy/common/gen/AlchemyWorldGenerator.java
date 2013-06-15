@@ -20,7 +20,10 @@ public class AlchemyWorldGenerator
 
     public static void registerGenerators()
     {
-        GameRegistry.registerWorldGenerator(copperGen);
+        if (WorldGen.GENERATE_COPPER)
+        {
+            GameRegistry.registerWorldGenerator(copperGen);
+        }
     }
 
 }

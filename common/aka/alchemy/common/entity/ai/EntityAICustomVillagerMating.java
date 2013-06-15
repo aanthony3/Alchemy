@@ -79,9 +79,9 @@ public class EntityAICustomVillagerMating extends EntityAIBase
             {
                 this.giveBirth();
             }
-            
-            //generate heart animation
-            if(villagerObj.getRNG().nextInt(20) == 0)
+
+            // generate heart animation
+            if (villagerObj.getRNG().nextInt(20) == 0)
             {
                 world.setEntityState(villagerObj, (byte) 12);
             }
