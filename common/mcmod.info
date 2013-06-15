@@ -1,0 +1,17 @@
+[
+{
+  "modid": "akaAlchemy",
+  "name": "Alchemy",
+  "description": "Transmute stuff into other stuff! Become a Minecraft God!",
+  "version": "@VERSION@",
+  "authorList": [
+    "aanthony3",
+  ],
+  "credits": "By aanthony3,",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

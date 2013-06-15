@@ -11,13 +11,13 @@ public class EntityAICustomVillagerMating extends EntityAIBase
     private boolean foundMate = false;
     private EntityVillager villagerObj;
     private EntityVillager mate;
-    private World worldObj;
+    private World world;
     private int matingTimeout = 0;
 
     public EntityAICustomVillagerMating(EntityVillager entityVillager)
     {
         villagerObj = entityVillager;
-        worldObj = entityVillager.worldObj;
+        world = entityVillager.worldObj;
         this.setMutexBits(3);
     }
 
@@ -31,7 +31,7 @@ public class EntityAICustomVillagerMating extends EntityAIBase
     public void startExecuting()
     {
         // find the nearest villager
-        EntityVillager entityMate = (EntityVillager) worldObj
+        EntityVillager entityMate = (EntityVillager) world
                 .findNearestEntityWithinAABB(EntityVillager.class,
                         villagerObj.boundingBox.expand(8.0D, 3.0D, 8.0D),
                         villagerObj);
@@ -79,6 +79,12 @@ public class EntityAICustomVillagerMating extends EntityAIBase
             {
                 this.giveBirth();
             }
+            
+            //generate heart animation
+            if(villagerObj.getRNG().nextInt(20) == 0)
+            {
+                world.setEntityState(villagerObj, (byte) 12);
+            }
         }
     }
 
@@ -91,8 +97,8 @@ public class EntityAICustomVillagerMating extends EntityAIBase
         entityvillager.setGrowingAge(-24000);
         entityvillager.setLocationAndAngles(villagerObj.posX, villagerObj.posY,
                 villagerObj.posZ, 0.0F, 0.0F);
-        worldObj.spawnEntityInWorld(entityvillager);
-        worldObj.setEntityState(entityvillager, (byte) 12);
+        world.spawnEntityInWorld(entityvillager);
+        world.setEntityState(entityvillager, (byte) 12);
     }
 
     private void checkSuitableMate(EntityVillager entityMate)
@@ -109,7 +115,7 @@ public class EntityAICustomVillagerMating extends EntityAIBase
         // If a mate hasn't been found already try to find one
         if (!foundMate)
         {
-            EntityVillager entityMate = (EntityVillager) worldObj
+            EntityVillager entityMate = (EntityVillager) world
                     .findNearestEntityWithinAABB(EntityVillager.class,
                             villagerObj.boundingBox.expand(8.0D, 3.0D, 8.0D),
                             villagerObj);
