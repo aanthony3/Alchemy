@@ -14,7 +14,8 @@ import aka.alchemy.common.lib.ItemIds;
 
 public class EntityLivingEventHandler
 {
-    @ForgeSubscribe
+    @SuppressWarnings("rawtypes")
+	@ForgeSubscribe
     public void interactWithEntity(EntityInteractEvent event)
     {
         EntityPlayer player = event.entityPlayer;

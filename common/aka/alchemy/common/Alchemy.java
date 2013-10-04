@@ -13,10 +13,8 @@ import aka.alchemy.common.lib.Reference;
 import aka.alchemy.core.handlers.events.EntityEventHandler;
 import aka.alchemy.core.handlers.events.EntityLivingEventHandler;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -38,7 +36,7 @@ public class Alchemy
     public CreativeTabs alchemyTab = new CreativeTabAlchemy(
             CreativeTabs.getNextID(), Reference.MOD_ID);
 
-    @PreInit
+    @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
         // initialize the logger
@@ -48,7 +46,7 @@ public class Alchemy
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     }
 
-    @Init
+    @EventHandler
     public void load(FMLInitializationEvent event)
     {
         proxy.registerRenderers();
@@ -63,7 +61,7 @@ public class Alchemy
         MinecraftForge.EVENT_BUS.register(new EntityLivingEventHandler());
     }
 
-    @PostInit
+    @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
         // Stub Method
